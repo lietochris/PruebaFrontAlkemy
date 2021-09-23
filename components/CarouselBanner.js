@@ -9,8 +9,9 @@ SwiperCore.use([Autoplay, Navigation]);
 
 export default function CarouselBanner() {
 
+    // Fast delay only for
     const autoPlaySettings = {
-        "delay": 2500,
+        "delay": 3000,
         "disableOnInteraction": false
     }
     const paginationSettings = {

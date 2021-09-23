@@ -11,6 +11,7 @@ import {
     DrawerContent,
     DrawerCloseButton,
 } from "@chakra-ui/react"
+import NavbarLink from "./NavbarLink";
 
 export default function Navbar() {
 
@@ -28,6 +29,9 @@ export default function Navbar() {
             >
                 <Img h={["full", "100%"]} w={["10rem", "10vw"]} src="/logo_vacunas.png"/>
                 <Spacer/>
+
+
+                {/*Mobile button*/}
                 <IconButton
                     display={["flex", "none"]}
                     icon={<HamburgerIcon/>}
@@ -35,18 +39,18 @@ export default function Navbar() {
                     ref={btnRef}
                     onClick={onOpen}
                 />
+
+                {/*Desktop navbar links*/}
                 <HStack display={["none", "flex"]} spacing={1}>
-                    <Button variant="ghost" color="#3f829d"> <Img w={["1.5rem"]} src="/icons/icon_calendar.png"
-                                                                  mr={1}/> Etapas de vida</Button>
-                    <Button variant="ghost" color="#3f829d"><Img w={["1.5rem"]} src="/icons/icon_location.png"
-                                                                 mr={1}/> Dónde Vacunar</Button>
-                    <Button variant="ghost" color="#3f829d"><Img w={["1.5rem"]} src="/icons/icon_molecule.png"
-                                                                 mr={1}/> Conoce de Enfermedades</Button>
-                    <Button variant="ghost" color="#3f829d"><Img w={["1.5rem"]} src="/icons/icon_article.png"
-                                                                 mr={1}/> Articulos</Button>
+                    <NavbarLink title={"Etapas de vida"} iconSrc={"/icons/icon_calendar.png"}/>
+                    <NavbarLink title={"Dónde Vacunar"} iconSrc={"/icons/icon_location.png"}/>
+                    <NavbarLink title={"Conoce de Enfermedades"} iconSrc={"/icons/icon_molecule.png"}/>
+                    <NavbarLink title={"Articulos"} iconSrc={"/icons/icon_article.png"}/>
                 </HStack>
             </Flex>
 
+
+            {/*Mobile sidebar*/}
             <Drawer
                 isOpen={isOpen}
                 placement="right"
@@ -56,19 +60,14 @@ export default function Navbar() {
                 <DrawerOverlay/>
                 <DrawerContent>
                     <DrawerCloseButton/>
-                    <DrawerHeader/>
+                    <DrawerHeader mb={12}/>
 
                     <DrawerBody>
                         <VStack justify={"start"} align={"start"} spacing={3}>
-                            <Button variant="ghost" color="#3f829d">
-                                <Img w={["1.5rem"]} src="/icons/icon_calendar.png" mr={1}/> Etapas de vida</Button>
-                            <Button variant="ghost" color="#3f829d">
-                                <Img w={["1.5rem"]} src="/icons/icon_location.png" mr={1}/> Dónde Vacunar</Button>
-                            <Button variant="ghost" color="#3f829d">
-                                <Img w={["1.5rem"]} src="/icons/icon_molecule.png" mr={1}/> Conoce de
-                                Enfermedades</Button>
-                            <Button variant="ghost" color="#3f829d">
-                                <Img w={["1.5rem"]} src="/icons/icon_article.png" mr={1}/> Articulos</Button>
+                            <NavbarLink title={"Etapas de vida"} iconSrc={"/icons/icon_calendar.png"}/>
+                            <NavbarLink title={"Dónde Vacunar"} iconSrc={"/icons/icon_location.png"}/>
+                            <NavbarLink title={"Conoce de Enfermedades"} iconSrc={"/icons/icon_molecule.png"}/>
+                            <NavbarLink title={"Articulos"} iconSrc={"/icons/icon_article.png"}/>
                         </VStack>
                     </DrawerBody>
 
